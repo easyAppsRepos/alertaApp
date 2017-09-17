@@ -43,7 +43,7 @@ app.controller('MotionController', function($scope, $ionicPlatform, $cordovaDevi
 		
 		//Start Watching method
 		$scope.startWatching = function() {		
-
+console.log('hhh');
 		    // Device motion configuration
 			$scope.watch = $cordovaDeviceMotion.watchAcceleration($scope.options);
 			
@@ -51,7 +51,7 @@ app.controller('MotionController', function($scope, $ionicPlatform, $cordovaDevi
 			$scope.watch.then(null, function(error) {
 
 				console.log('Error');
-				console.log(result);
+				console.log(error);
 			  },function(result) {
 				  console.log(result);
 				// Set current data  
