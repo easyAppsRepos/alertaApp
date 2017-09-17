@@ -49,9 +49,11 @@ app.controller('MotionController', function($scope, $ionicPlatform, $cordovaDevi
 			
 			// Device motion initilaization
 			$scope.watch.then(null, function(error) {
+
 				console.log('Error');
+				console.log(result);
 			  },function(result) {
-				  
+				  console.log(result);
 				// Set current data  
 				$scope.measurements.x = result.x;
 				$scope.measurements.y = result.y;
