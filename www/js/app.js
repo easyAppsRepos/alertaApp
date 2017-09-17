@@ -39,7 +39,7 @@ app.controller('MotionController', function($scope, $ionicPlatform, $cordovaDevi
 	$scope.watch = null;
 	
 	// Start measurements when Cordova device is ready
-    $ionicPlatform.ready(function() {
+ 
 		
 		//Start Watching method
 		$scope.startWatching = function() {		
@@ -108,7 +108,7 @@ console.log('hhh');
 			
         }		
 		
-    });
+
 	
 	$scope.$on('$ionicView.beforeLeave', function(){
 	    $scope.watch.clearWatch(); // Turn off motion detection watcher
