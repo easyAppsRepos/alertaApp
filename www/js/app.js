@@ -53,7 +53,7 @@ console.log('hhh');
 				console.log('Error');
 				console.log(error);
 			  },function(result) {
-				  console.log(result);
+				 // console.log(result);
 				// Set current data  
 				$scope.measurements.x = result.x;
 				$scope.measurements.y = result.y;
@@ -84,8 +84,8 @@ console.log('hhh');
 
 			var SVtot = Math.sqrt((squareIt(result.x)+squareIt(result.y)+squareIt(result.z))); 
 
-			if(SVtot < 0.6){console.log('START OF A FALL');}
-			console.log(SVtot);
+			if(SVtot < 5.88){console.log('START OF A FALL');}
+			//console.log(SVtot);
 		
 		    //Object to hold measurement difference between current and old data
             //var measurementsChange = {};
