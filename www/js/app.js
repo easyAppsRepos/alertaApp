@@ -15,7 +15,7 @@ app.controller('MotionController', function($scope, $ionicPlatform, $cordovaDevi
 
 	// watch Acceleration
 	$scope.options = { 
-		frequency: 100, // Measure every 100ms
+		frequency: 200, // Measure every 100ms
         deviation : 25  // We'll use deviation to determine the shake event, best values in the range between 25 and 30
 	};
 
@@ -71,14 +71,27 @@ console.log('hhh');
 			$scope.watch.clearWatch();
         }		
 		
+
+			function squareIt(number) {
+			return number * number;
+			}
+
+
 		// Detect shake method		
-		$scope.detectShake = function(result) {	
+		$scope.detectShake = function(result) {	 
+
+			//Calcular SV_tot
+
+			var SVtot = Math.sqrt((squareIt(result.x)+squareIt(result.y)+squareIt(result.z))); 
+
+			if(SVtot < 0.6){console.log('START OF A FALL');}
+			console.log(SVtot);
 		
 		    //Object to hold measurement difference between current and old data
-            var measurementsChange = {};
+            //var measurementsChange = {};
 			
 			// Calculate measurement change only if we have two sets of data, current and old
-			if ($scope.previousMeasurements.x !== null) {
+/*			if ($scope.previousMeasurements.x !== null) {
 				measurementsChange.x = Math.abs($scope.previousMeasurements.x, result.x);
 				measurementsChange.y = Math.abs($scope.previousMeasurements.y, result.y);
 				measurementsChange.z = Math.abs($scope.previousMeasurements.z, result.z);
@@ -104,7 +117,7 @@ console.log('hhh');
 					y: result.y,
 					z: result.z
 				}
-			}			
+			}*/			
 			
         }		
 		
