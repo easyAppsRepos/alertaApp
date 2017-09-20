@@ -77,15 +77,27 @@ console.log('hhh');
 			}
 
 
+function onSuccess(heading) {
+    console.log('Heading: ' + heading.magneticHeading);
+};
+
+function onError(error) {
+    console.log('CompassError: ' + error.code);
+};
+
+
+
 		// Detect shake method		
-		$scope.detectShake = function(result) {	 
+		$scope.detectShake = function(result) {	
+
+
+		navigator.compass.getCurrentHeading(onSuccess, onError);
 
 			//Calcular SV_tot
-
 			var SVtot = Math.sqrt((squareIt(result.x)+squareIt(result.y)+squareIt(result.z))); 
 
 			if(SVtot < 6){console.log('START OF A FALL');}
-			
+
 			console.log(SVtot);
 		
 		    //Object to hold measurement difference between current and old data
