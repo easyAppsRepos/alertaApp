@@ -11,7 +11,7 @@ app.run(function($ionicPlatform) {
 
 
 
-			window.plugins.NativeAudio.preloadComplex( 'music', 'img/alarma.mp3', 1, 1, 0, function(msg){
+			window.plugins.NativeAudio.preloadComplex( 'music', 'audio/alarma.mp3', 1, 1, 0, function(msg){
 			}, function(msg){
 			console.log( 'error: ' + msg );
 			});
