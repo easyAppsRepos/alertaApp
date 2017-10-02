@@ -1,19 +1,6 @@
 var app = angular.module('starter', ['ionic','ngCordova']);
  
 
- function init() {
-    document.addEventListener("deviceready", onDeviceReady, false);
-}
-function onDeviceReady() {
-
-
-	console.log( 'ok fsdf ' );
-    window.plugins.NativeAudio.preloadSimple( 'click', 'audio/alarma.mp3', function(msg){
-	console.log( 'ok ' );
-    }, function(msg){
-        console.log( 'error: ' + msg );
-    });
-}
 
 
 
@@ -28,6 +15,11 @@ app.run(function($ionicPlatform) {
         }
 console.log( 'resdd ' );
 
+    window.plugins.NativeAudio.preloadSimple( 'click', 'audio/alarma.mp3', function(msg){
+	console.log( 'ok ' );
+    }, function(msg){
+        console.log( 'error: ' + msg );
+    });
 
 		/*	window.plugins.NativeAudio.preloadComplex( 'music', 'audio/alarma.mp3', 1, 1, 0, function(msg){
 				console.log('ok');
