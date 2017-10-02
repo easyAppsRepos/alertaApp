@@ -12,6 +12,8 @@ app.run(function($ionicPlatform) {
 
 
 			window.plugins.NativeAudio.preloadComplex( 'music', 'audio/alarma.mp3', 1, 1, 0, function(msg){
+				console.log('ok');
+				console.log(msg);
 			}, function(msg){
 			console.log( 'error: ' + msg );
 			});
@@ -132,7 +134,10 @@ app.controller('temCtrl', function($scope, $localstorage, $ionicPlatform, $cordo
 app.controller('peligroCtrl', function($scope, $localstorage, $ionicPlatform, $cordovaDeviceMotion) {
 
 
-	window.plugins.NativeAudio.loop( 'music' );
+
+
+	console.log('mm');
+	window.plugins.NativeAudio.loop('music');
 
 	//$scope.mode = {};
 	$scope.cambioModo = function(modo){
