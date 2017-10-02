@@ -185,7 +185,7 @@ app.controller('peligroCtrl', function($scope, $localstorage, $timeout, $ionicPl
             
 	
 
-	//window.plugins.NativeAudio.loop('music');
+	window.plugins.NativeAudio.loop('music');
 
 
 
