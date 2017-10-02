@@ -1,6 +1,7 @@
 var app = angular.module('starter', ['ionic','ngCordova']);
  
 app.run(function($ionicPlatform) {
+
     $ionicPlatform.ready(function() {
         if(window.cordova && window.cordova.plugins.Keyboard) {
             cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
@@ -8,7 +9,7 @@ app.run(function($ionicPlatform) {
         if(window.StatusBar) {
             StatusBar.styleDefault();
         }
-
+console.log( 'resdd ' );
 window.plugins.NativeAudio.preloadSimple( 'click', 'audio/alarma.mp3', function(msg){
 	console.log( 'ok ' );
     }, function(msg){
