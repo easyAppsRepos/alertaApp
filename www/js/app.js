@@ -6,6 +6,7 @@ var app = angular.module('starter', ['ionic','ngCordova']);
 }
 function onDeviceReady() {
 
+
 	console.log( 'ok fsdf ' );
     window.plugins.NativeAudio.preloadSimple( 'click', 'audio/alarma.mp3', function(msg){
 	console.log( 'ok ' );
