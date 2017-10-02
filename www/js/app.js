@@ -10,12 +10,12 @@ app.run(function($ionicPlatform) {
 
 console.log( 'resdd ' );
 
-    window.plugins.NativeAudio.preloadSimple( 'click', 'audio/alarma.mp3', function(msg){
+/*    window.plugins.NativeAudio.preloadSimple( 'click', 'audio/alarma.mp3', function(msg){
 	console.log( 'ok ' );
     }, function(msg){
         console.log( 'error: ' + msg );
-    });
-    	
+    });*/
+
         if(window.cordova && window.cordova.plugins.Keyboard) {
             cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
         }
@@ -24,13 +24,13 @@ console.log( 'resdd ' );
         }
 
 
-		/*	window.plugins.NativeAudio.preloadComplex( 'music', 'audio/alarma.mp3', 1, 1, 0, function(msg){
+			window.plugins.NativeAudio.preloadComplex( 'music', 'audio/alarma.mp3', 1, 1, 0, function(msg){
 				console.log('ok');
 				console.log(msg);
 			}, function(msg){
 			console.log( 'error: ' + msg );
 			});
-*/
+
 
 
     });
@@ -160,8 +160,8 @@ app.controller('peligroCtrl', function($scope, $localstorage, $ionicPlatform, $c
  
 
 
-//	window.plugins.NativeAudio.loop('music');
-window.plugins.NativeAudio.play( 'click' );
+	window.plugins.NativeAudio.loop('music');
+//window.plugins.NativeAudio.play( 'click' );
 	//$scope.mode = {};
 	$scope.cambioModo = function(modo){
 
