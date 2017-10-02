@@ -18,7 +18,7 @@ console.log( 'resdd ' );
 			console.log( 'error: ' + msg );
 			});
 
-	
+
 
 /*    window.plugins.NativeAudio.preloadSimple( 'click', 'audio/alarma.mp3', function(msg){
 	console.log( 'ok ' );
@@ -148,7 +148,7 @@ app.controller('temCtrl', function($scope, $localstorage, $ionicPlatform, $cordo
 });
 
 
-app.controller('peligroCtrl', function($scope, $localstorage, $ionicPlatform, $cordovaDeviceMotion) {
+app.controller('peligroCtrl', function($scope, $localstorage, $timeout, $ionicPlatform, $cordovaDeviceMotion) {
 
 	console.log('mm');
 /*	window.plugins.NativeAudio.preloadComplex( 'music', 'audio/alarma.mp3', 1, 1, 0, function(msg){
@@ -161,10 +161,36 @@ app.controller('peligroCtrl', function($scope, $localstorage, $ionicPlatform, $c
 
 
 
- 
+
+    $scope.counter = 30;
+    $scope.paraAlerta = false;
+
+    $scope.onTimeout = function(){
+        $scope.counter--;
+        if ($scope.counter > 0 && !$scope.paraAlerta) {
+            mytimeout = $timeout($scope.onTimeout,1000);
+        }
+        else {
+        	if(!$scope.paraAlerta){alert("enviar mensajes y llamar");}
+           
+        }
+    }
+
+    var mytimeout = $timeout($scope.onTimeout,1000);
+    
+    $scope.reset= function(){
+        $scope.counter = 5;
+        mytimeout = $timeout($scope.onTimeout,1000);
+    }
+            
+	
+
+	//window.plugins.NativeAudio.loop('music');
 
 
-	window.plugins.NativeAudio.loop('music');
+
+
+
 //window.plugins.NativeAudio.play( 'click' );
 	//$scope.mode = {};
 	$scope.cambioModo = function(modo){
@@ -179,7 +205,7 @@ app.controller('peligroCtrl', function($scope, $localstorage, $ionicPlatform, $c
 
 	$scope.pararAlarma = function(){
 
-			
+			$scope.paraAlerta = true;
 window.plugins.NativeAudio.stop( 'music' );
 console.log('parar alarma');
 
