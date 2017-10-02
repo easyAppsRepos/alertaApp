@@ -9,7 +9,11 @@ app.run(function($ionicPlatform) {
             StatusBar.styleDefault();
         }
 
-
+window.plugins.NativeAudio.preloadSimple( 'click', 'audio/alarma.mp3', function(msg){
+	console.log( 'ok ' );
+    }, function(msg){
+        console.log( 'error: ' + msg );
+    });
 
 		/*	window.plugins.NativeAudio.preloadComplex( 'music', 'audio/alarma.mp3', 1, 1, 0, function(msg){
 				console.log('ok');
@@ -143,11 +147,7 @@ app.controller('peligroCtrl', function($scope, $localstorage, $ionicPlatform, $c
 			});*/
 
 
-window.plugins.NativeAudio.preloadSimple( 'click', 'audio/alarma.mp3', function(msg){
-	console.log( 'ok ' );
-    }, function(msg){
-        console.log( 'error: ' + msg );
-    });
+
  
 
 
