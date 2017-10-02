@@ -7,12 +7,7 @@ var app = angular.module('starter', ['ionic','ngCordova']);
 app.run(function($ionicPlatform) {
 
     $ionicPlatform.ready(function() {
-        if(window.cordova && window.cordova.plugins.Keyboard) {
-            cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
-        }
-        if(window.StatusBar) {
-            StatusBar.styleDefault();
-        }
+
 console.log( 'resdd ' );
 
     window.plugins.NativeAudio.preloadSimple( 'click', 'audio/alarma.mp3', function(msg){
@@ -20,6 +15,14 @@ console.log( 'resdd ' );
     }, function(msg){
         console.log( 'error: ' + msg );
     });
+    	
+        if(window.cordova && window.cordova.plugins.Keyboard) {
+            cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+        }
+        if(window.StatusBar) {
+            StatusBar.styleDefault();
+        }
+
 
 		/*	window.plugins.NativeAudio.preloadComplex( 'music', 'audio/alarma.mp3', 1, 1, 0, function(msg){
 				console.log('ok');
