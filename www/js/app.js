@@ -8,8 +8,159 @@ app.run(function($ionicPlatform) {
         if(window.StatusBar) {
             StatusBar.styleDefault();
         }
+
+
+
+			window.plugins.NativeAudio.preloadComplex( 'music', 'img/alarma.mp3', 1, 1, 0, function(msg){
+			}, function(msg){
+			console.log( 'error: ' + msg );
+			});
+
+
+
     });
 });
+
+
+
+app.config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
+//$ionicConfigProvider.backButton.text('');
+
+
+  $stateProvider
+
+    .state('app', {
+    url: '/app',
+    abstract: true,
+    templateUrl: 'templates/menu.html',
+    controller: 'temCtrl'
+  })
+
+     .state('app.deteccionCaida', {
+    url: '/deteccionCaida',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/deteccionCaida.html'
+      }
+    }
+  })
+
+          .state('app.confirmacionPresencia', {
+    url: '/confirmacionPresencia',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/confirmacionPresencia.html'
+      }
+    }
+  })
+          .state('app.config', {
+    url: '/config',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/config.html',
+         controller: 'temCtrl'
+      }
+    }
+  })
+       
+
+          .state('app.peligro', {
+    url: '/peligro',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/peligro.html',
+        controller: 'peligroCtrl'
+      }
+    }
+  })
+         
+
+  .state('app.search', {
+    url: '/search',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/search.html'
+      }
+    }
+  });
+
+
+  // if none of the above states are matched, use this as the fallback
+  $urlRouterProvider.otherwise('/app/search');
+
+ // $ionicConfigProvider.views.transition('none');
+});
+
+app.factory('$localstorage', ['$window', function ($window) {
+  return {
+    set: function (key, value) {
+      $window.localStorage[key] = value;
+    },
+    get: function (key, defaultValue) {
+      return $window.localStorage[key] || defaultValue;
+    },
+    setObject: function (key, value) {
+      $window.localStorage[key] = JSON.stringify(value);
+    },
+    getObject: function (key) {
+      return JSON.parse($window.localStorage[key] || '{}');
+    },
+    remove: function(key) {
+      $window.localStorage.removeItem(key);
+    }
+  }
+}]);
+
+app.controller('temCtrl', function($scope, $localstorage, $ionicPlatform, $cordovaDeviceMotion) {
+
+	//$scope.mode = {};
+	$scope.cambioModo = function(modo){
+
+		
+
+		$localstorage.set('modo2', modo);
+	console.log($localstorage.get('modo2'));
+
+}
+
+
+
+
+});
+
+
+app.controller('peligroCtrl', function($scope, $localstorage, $ionicPlatform, $cordovaDeviceMotion) {
+
+
+	window.plugins.NativeAudio.loop( 'music' );
+
+	//$scope.mode = {};
+	$scope.cambioModo = function(modo){
+
+		
+
+		$localstorage.set('modo2', modo);
+	console.log($localstorage.get('modo2'));
+
+}
+
+
+	$scope.pararAlarma = function(){
+
+			
+window.plugins.NativeAudio.stop( 'music' );
+console.log('parar alarma');
+
+	}
+
+
+
+
+
+
+});
+
+
 
 app.controller('MotionController', function($scope, $ionicPlatform, $cordovaDeviceMotion) {
 

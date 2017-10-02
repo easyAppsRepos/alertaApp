@@ -1,1 +1,25 @@
 /* Empty. Add your own CSS if you like */
+
+
+.bar-darks{
+
+	background-color: #1b5292;
+	height: 70px;
+}
+
+.has-header {
+    top: 70px !important;
+}
+
+
+.bar-footer {
+
+    height: 120px !important;
+
+}
+
+.bar.bar-balanced {
+    border-color: #28a54c;
+    background-color: #f08121;
+
+}

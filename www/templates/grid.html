@@ -1,0 +1,63 @@
+
+
+
+<ion-view hide-back-button="true">
+
+
+
+<ion-nav-title>
+    <span style='    font-family: RobotoBlack;' class="">EDICIONES</span>
+</ion-nav-title>
+
+
+ <ion-nav-buttons side="right">
+        <button class="button button-icon button-clear ion-ios-search" >
+        </button>
+      </ion-nav-buttons>
+
+
+  <ion-content id="grid-template" grid-animations-basis >
+
+   
+  <div id="theGrid" class="main" back-to-grid>
+    <section class="grid">
+      <a ui-sref="app.article({articleId: article.articleId})" ng-click='disableTouch()' grid-item class="grid__item" ng-repeat="article in articles">
+        <span style='font-family: RobotoC !important' class="title title--preview">{{article.title}}</span>
+        <div class="loader"></div>
+
+        <span class="category" style='font-family: RobotoL '>{{article.category}}</span>
+
+
+        <div class="meta meta--preview" style="    margin-top: 10px;">
+         <!--  <img class="meta__avatar" ng-src="{{article.author}}" alt="author04" />  -->
+          <span class="meta__date"><i class="fa fa-calendar-o"></i>{{article.date}}</span>
+          <span class="meta__reading-time"><i class="fa fa-clock-o"></i>{{article.length}}</span>
+        </div>
+      </a>
+    </section>
+  </div>
+
+
+  </ion-content>
+
+<ion-footer-bar class="" style='background-color: #dcdcdc;' >
+  <!-- <img src="img/logo.png"> -->
+
+ <div style="width:100% !important; text-align:center">   <img style="    height: 50px !important; " src="img/baner1.png"></div>
+
+<i ng-click='abrirInfo()'  style='    position: absolute;
+    left: 0;
+    opacity: 0.4;
+    font-size: 35px;
+    margin-left: 5px;
+    top: 9px;' class="ion-ios-information-outline"></i>
+
+
+
+</ion-footer-bar>
+
+
+
+</ion-view>
+
+
