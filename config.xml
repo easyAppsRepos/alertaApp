@@ -77,7 +77,7 @@
 <gap:plugin name="cordova-plugin-device-orientation" source="npm"  />
 
 <gap:plugin name="cordova-plugin-nativeaudio" source="npm"  />
-
+<gap:plugin name="cordova-plugin-background-mode" source="npm"  />
  
       <gap:plugin name="cordova-plugin-app-event" source="npm" version="1.2.0"/>
        <gap:plugin name="cordova-plugin-device" source="npm" version="1.1.4" />

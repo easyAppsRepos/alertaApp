@@ -10,7 +10,7 @@ app.run(function($ionicPlatform) {
 
 console.log( 'resdd ' );
 
-
+if( window.plugins && window.plugins.NativeAudio ) {
 	window.plugins.NativeAudio.preloadComplex( 'music', 'audio/alarma.mp3', 1, 1, 0, function(msg){
 				console.log('ok');
 				console.log(msg);
@@ -18,7 +18,9 @@ console.log( 'resdd ' );
 			console.log( 'error: ' + msg );
 			});
 
+}
 
+		cordova.plugins.backgroundMode.enable();
 
 /*    window.plugins.NativeAudio.preloadSimple( 'click', 'audio/alarma.mp3', function(msg){
 	console.log( 'ok ' );
@@ -132,15 +134,23 @@ app.factory('$localstorage', ['$window', function ($window) {
 
 app.controller('temCtrl', function($scope, $localstorage, $ionicPlatform, $cordovaDeviceMotion) {
 
+	$scope.config={};
+	$scope.config.tiempoAlerta=$localstorage.get('tiempoAlerta','30');
+	$scope.config.tiempoConfirmacion=$localstorage.get('tiempoConfirmacion','300');
 	//$scope.mode = {};
-	$scope.cambioModo = function(modo){
+	console.log($scope.config.tiempoAlerta);
 
-		
 
-		$localstorage.set('modo2', modo);
-	console.log($localstorage.get('modo2'));
 
-}
+		$scope.asignarTiempo = function(tiempo){
+		$localstorage.set('tiempoAlerta', tiempo);
+		}
+
+		$scope.asignarTiempoP = function(tiempo){
+		$localstorage.set('tiempoConfirmacion', tiempo);
+		}
+
+
 
 
 
@@ -160,9 +170,9 @@ app.controller('peligroCtrl', function($scope, $localstorage, $timeout, $ionicPl
 			});*/
 
 
+window.plugins.NativeAudio.loop('music');
 
-
-    $scope.counter = 30;
+    $scope.counter = $localstorage.get('tiempoAlerta',30);
     $scope.paraAlerta = false;
 
     $scope.onTimeout = function(){
@@ -185,7 +195,7 @@ app.controller('peligroCtrl', function($scope, $localstorage, $timeout, $ionicPl
             
 	
 
-	window.plugins.NativeAudio.loop('music');
+	
 
 
 

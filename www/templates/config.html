@@ -30,6 +30,67 @@
 		</div>
 
 
+
+
+
+
+        <div style="    text-align: center;margin-top: 29px;">
+
+        <span style="margin-top: 5px;
+    display: inline-block;
+    margin-right: 15px;
+    vertical-align: top;
+    font-size: 20px;
+    color: lightgray;"> Duracion de alerta</span> <br><br>
+
+
+
+           
+         
+            <select style='    color: white;
+    font-size: 20px;' ng-model='config.tiempoAlerta' ng-change="asignarTiempo(config.tiempoAlerta)">
+            <option value='30' >30 segundos</option>
+            <option value='45' >45 segundos</option>
+            <option value='60'>60 segundos</option>
+            </select>
+        
+
+
+
+        </div>
+
+
+
+
+       <div style="    text-align: center;margin-top: 29px;">
+
+        <span style="margin-top: 5px;
+    display: inline-block;
+    margin-right: 15px;
+    vertical-align: top;
+    font-size: 20px;
+    color: lightgray;">Confirmacion de presencia</span> <br><br>
+
+
+
+           
+         
+            <select style='    color: white;
+    font-size: 20px;' ng-model='config.tiempoConfirmacion' ng-change="asignarTiempoP(config.tiempoConfirmacion)">
+            <option value='60' >Cada 2 minutos</option>
+            <option value='300' >Cada 5 minutos</option>
+            <option value='600'>Cada 10 minutos</option>
+            <option value='900'>Cada 15 minutos</option>
+            </select>
+        
+
+
+
+        </div>
+
+
+
+
 <!-- <img style='    width: 60%;
     margin-left: 20%;
     margin-top: 12px;' src="img/button-yellow-small.png" > -->
