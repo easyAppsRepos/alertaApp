@@ -20,7 +20,28 @@ if( window.plugins && window.plugins.NativeAudio ) {
 
 }
 
-		cordova.plugins.backgroundMode.enable();
+cordova.plugins.backgroundMode.enable();
+
+window.addEventListener("batterylow", onBatteryLow, false);
+
+function onBatteryLow(status) {
+    //alert("Battery Level Low " + status.level + "%");
+
+	 navigator.notification.beep(2);
+     navigator.notification.alert(
+            'Nivel bajo de bateria ',  // message
+            function(){console.log('batteryLow')},
+            'Alerta',            // title
+            'Entiendo'                  // buttonName
+        );
+
+ 		
+}
+
+
+
+
+		
 
 /*    window.plugins.NativeAudio.preloadSimple( 'click', 'audio/alarma.mp3', function(msg){
 	console.log( 'ok ' );
@@ -132,15 +153,17 @@ app.factory('$localstorage', ['$window', function ($window) {
   }
 }]);
 
-app.controller('temCtrl', function($scope, $localstorage, $ionicPlatform, $cordovaDeviceMotion) {
+app.controller('temCtrl', function($scope, $ionicLoading, $timeout, $state, $localstorage, $ionicPlatform, $cordovaDeviceMotion) {
 
 	$scope.config={};
 	$scope.config.tiempoAlerta=$localstorage.get('tiempoAlerta','30');
-	$scope.config.tiempoConfirmacion=$localstorage.get('tiempoConfirmacion','300');
+	//$scope.config.tiempoConfirmacion=$localstorage.get('tiempoConfirmacion','300');
 	//$scope.mode = {};
-	console.log($scope.config.tiempoAlerta);
+	
+		$scope.getMinutes = function(num){
+			return Math.floor(num/60);
 
-
+		}
 
 		$scope.asignarTiempo = function(tiempo){
 		$localstorage.set('tiempoAlerta', tiempo);
@@ -151,6 +174,76 @@ app.controller('temCtrl', function($scope, $localstorage, $ionicPlatform, $cordo
 		}
 
 
+
+	$scope.modos={};
+	$scope.modos.modo3=$localstorage.get('modo3', false) == 'true' ? true : false ;
+
+console.log($scope.modos.modo3);
+
+		
+
+				$scope.counter = $localstorage.get('tiempoConfirmacion','300');
+				$scope.paraAlerta = false;
+
+				$scope.onTimeout = function(){
+
+
+					if($scope.modos.modo3){
+				$scope.counter--;
+				if ($scope.counter > 0) {
+				mytimeout = $timeout($scope.onTimeout,1000);
+				}
+
+				else {
+					$state.go('app.peligro');
+				}
+			}
+
+			}
+
+
+				if($scope.modos.modo3){
+
+					var mytimeout = $timeout($scope.onTimeout,1000);
+
+				
+		}
+
+		$scope.reset= function(){
+
+
+
+				$scope.counter = $localstorage.get('tiempoConfirmacion','300');
+			//	mytimeout = $timeout($scope.onTimeout,1000);
+				}
+
+
+
+
+
+		$scope.asignarModo3 = function(modo){
+
+		
+
+
+		$localstorage.set('modo3', modo);
+		
+		if(!modo){
+
+
+			$scope.reset();
+			$ionicLoading.show();
+			
+			$timeout($ionicLoading.hide,500);
+		}
+		else{
+			//mytimeout = $timeout($scope.onTimeout,1000);
+
+			$scope.counter = $localstorage.get('tiempoConfirmacion','300');
+			mytimeout = $timeout($scope.onTimeout,1000);
+		}
+		
+		}
 
 
 
@@ -169,9 +262,9 @@ app.controller('peligroCtrl', function($scope, $localstorage, $timeout, $ionicPl
 			console.log( 'error: ' + msg );
 			});*/
 
-
+if( window.plugins && window.plugins.NativeAudio ) {
 window.plugins.NativeAudio.loop('music');
-
+}
     $scope.counter = $localstorage.get('tiempoAlerta',30);
     $scope.paraAlerta = false;
 

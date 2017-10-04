@@ -28,7 +28,7 @@
     display: inline-block;  margin-right: 15px;vertical-align: top; font-size: 20px; color: lightgray' >OFF</span>
 
 		<label class="toggle">
-		   <input type="checkbox">
+		   <input type="checkbox"  ng-model='modos.modo3' ng-change='asignarModo3(modos.modo3)'>
 		   <div class="track">
 		     <div class="handle"></div>
 		   </div>
@@ -40,15 +40,16 @@
 		</div>
 
 
-<!-- <img style='    width: 60%;
+    <img ng-show='!modos.modo3' style='    width: 60%;
     margin-left: 20%;
-    margin-top: 12px;' src="img/button-yellow-small.png" > -->
+    margin-top: 12px;' src="img/button-yellow-small.png" >
 
-    <img style='    width: 60%;
+
+    <img ng-show='modos.modo3'  ng-click='reset()' style='    width: 60%;
     margin-left: 20%;
     margin-top: 12px;' src="img/button-yellow-big.png" >
 
-    
+
 
 
 
@@ -66,7 +67,7 @@
     width: 100%;
     text-align: center;    margin-top: 18px;">
     	
-    	<div style="display: inline-block;"> <span style="    font-size: 35px;">46</span>  <br> <span>MINUTOS</span>  </div>
+    	<div style="display: inline-block;"> <span style="    font-size: 35px;">{{getMinutes(counter)}}</span>  <br> <span>MINUTOS</span>  </div>
 
     	<div style="    width: 3px;
     display: inline-block;
@@ -75,7 +76,7 @@
     margin-left: 5px;
     margin-right: 5px;"></div>
 
-    	<div style="display: inline-block;"><span style="    font-size: 35px;">46</span>  <br> <span>SEGUNDOS</span>  </div>
+    	<div style="display: inline-block;"><span style="    font-size: 35px;">{{counter % 60}}</span>  <br> <span>SEGUNDOS</span>  </div>
 
     </div>
 
