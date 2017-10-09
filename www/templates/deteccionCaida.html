@@ -1,4 +1,4 @@
-<ion-view view-title="Playlist">
+<ion-view view-title="">
 
 
   <ion-content style='background-color: #123661'>
@@ -46,15 +46,21 @@
 	<div class="bar bar-footer bar-balanced">
 
 
-	<img style='height: calc(85% + 40px);
+	<img ng-show='!modos.modo3' style='height: calc(85% + 40px);
     margin-top: -27px;
     margin-left: 1px;' src="img/button-yellow-small.png" > 
+
+    <img ng-show='modos.modo3' style='height: calc(85% + 40px);
+    margin-top: -27px;
+    margin-left: 1px;' src="img/button-yellow-big.png" ng-click='reset()' > 
+
+
 
     <div style="    position: RELATIVE;
     width: 100%;
     text-align: center;    margin-top: 8px;">
     	
-    	<div style="display: inline-block;"> <span style="    font-size: 35px;">46</span>  <br> <span>MINUTOS</span>  </div>
+    	<div style="display: inline-block;"> <span style="    font-size: 35px;">{{getMinutes(counter)}}</span>  <br> <span>MINUTOS</span>  </div>
 
     	<div style="    width: 3px;
     display: inline-block;
@@ -63,7 +69,7 @@
     margin-left: 5px;
     margin-right: 5px;"></div>
 
-    	<div style="display: inline-block;"><span style="    font-size: 35px;">46</span>  <br> <span>SEGUNDOS</span>  </div>
+    	<div style="display: inline-block;"><span style="    font-size: 35px;">{{counter % 60}}</span>  <br> <span>SEGUNDOS</span>  </div>
 
     </div>
 

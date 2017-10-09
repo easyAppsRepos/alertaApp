@@ -5,6 +5,7 @@
 
 	background-color: #1b5292;
 	height: 70px;
+	    color: white !important;
 }
 
 .has-header {
@@ -23,3 +24,42 @@
     background-color: #f08121;
 
 }
+
+.iconDelete{
+	    margin-left: 8PX;
+    font-size: 23px;
+    color: #ed5564;
+    vertical-align: middle;
+}
+
+
+.perfilC span{
+
+	       display: block;
+    color: white;
+    font-size: 16px;
+    margin-top: 5px;
+    margin-left: 18px;
+}
+
+
+.perfilC input{
+
+width: 90%;
+
+}
+
+
+.bar .title {
+
+    padding-top: 10px;
+}
+
+
+.bar .button.button-clear {
+
+    padding-top: 10px;
+    color: white !important;
+}
+
+

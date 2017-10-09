@@ -1,0 +1,152 @@
+<ion-view view-title="Perfil de Usuario">
+
+
+    <ion-nav-bar class="bar-darks">
+
+<ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+        </button>
+      </ion-nav-buttons>
+
+      <ion-nav-buttons side="right">
+
+
+         <button class="button button-icon button-clear ion-person-add"  ui-sref="app.addUsuario">
+        </button>
+
+      </ion-nav-buttons>
+
+
+
+
+    </ion-nav-bar>
+
+
+
+
+
+  <ion-content style='background-color: #123661'>
+ 
+ <div ng-show='!noUsuarios'>
+<div class="perfilC">
+
+<span> <img style="    vertical-align: middle;
+    height: 35px;" src="img/perfil.png"> 
+
+    
+
+
+<!--              <select style='    color: white;
+    font-size:17px;' ng-model='userSelected' ng-change="asignarUsuario(config.tiempoAlerta)">
+
+            <option value='30' >Juan Manuel Carrasco</option>
+        
+            </select>
+
+
+                <select ng-model="config.userSelected" ng-='asignarUser(userSelected)'  ng-options="user.dni as user.Nombre for user in usuariosR">
+ -->
+<!--                             <select style='    color: white;
+    font-size: 20px;' ng-model='config.userSelected' ng-click="asignarUser(config.userSelected)" >
+
+            <option ng-repeat='user in usuariosR' ng-value='user.dni'  >{{user.Nombre}}</option>
+
+
+            </select>
+<select ng-model="userOn.dni" ng-change="asignarUsuario(userOn.dni)">
+            <option ng-repeat="user in usuariosR"  value="{{user.dni}}">{{user.dni}}</option>
+            </select>
+             
+ -->
+
+            
+            <select style='color: white;
+    font-size: 17px;' ng-model="config.dni" ng-change='asignarUsuario(config.dni)'  ng-options="user.dni as user.Nombre for user in usuariosR"></select>
+
+
+            </span>
+
+
+
+
+
+
+
+
+<span><img style="    vertical-align: middle;
+    height: 35px;" src="img/dni.png">{{userActivo.dni}}</span>
+<br> 
+
+<span>Empresa:</span>
+<span>{{userActivo.empresa}}</span>
+
+<br> 
+
+<span>Centro de trabajo:</span>
+<span>{{userActivo.centro}}</span>
+
+<br> 
+
+<span>Puesto de trabajo:</span>
+<span>{{userActivo.puesto}}</span>
+
+<br> 
+
+
+
+
+</div>
+
+
+<div class="perfilC">
+    
+<span><img style="    vertical-align: middle;
+    height: 35px;" src="img/sms.png">  Notificados por SMS <i style='margin-left: 18px;
+    font-size: 23px;
+    color: lightgreen;' class="ion-plus-circled" ng-hide='NoUserSelected' ng-click='asignarSMS()' ></i> </span>
+
+        <ul style="     color: white;
+    font-size: 17px;
+    list-style-type: disc;
+    margin-left: 50px;">
+
+  <li ng-repeat='sms in userActivo.sms'  style="margin-top:10px">{{sms}}<i class="ion-close-circled iconDelete"   ng-click='bajaSMS($index)'></i></li>
+</ul>
+
+
+<span><img style="    vertical-align: middle;
+    height: 35px;" src="img/email.png">  Notificados por Email <i style='margin-left: 18px;
+    font-size: 23px;
+    color: lightgreen;'  ng-hide='NoUserSelected' class="ion-plus-circled" ng-click='asignarEmail()' ></i></span>
+
+
+
+        <ul style="     color: white;
+    font-size: 17px;
+    list-style-type: disc;
+    margin-left: 50px;">
+  <li ng-repeat='email in userActivo.email' style="margin-top:10px">{{email}}<i class="ion-close-circled iconDelete" ng-click='bajaEmail()'></i>
+  </li>
+</ul>
+
+
+
+
+</div>
+
+</div>
+
+<div ng-show='noUsuarios' style="color: white;
+margin-top: 30px;
+font-size: 17px;
+text-align: center;
+opacity: 0.6;">
+    No has agregado ningun usuario
+</div>
+  </ion-content>
+
+
+<button ng-disabled='noUsuarios || NoUserSelected' style='    position: absolute;bottom: 0;width: 49%;left: 0;' class="button icon-left ion-trash-a">Eliminar Usuario</button>
+
+<button ng-disabled='noUsuarios || NoUserSelected' style='    position: absolute;bottom: 0;width: 49%;right: 0;' class="button icon-left ion-help-buoy">Ver Incidencias</button> 
+</ion-view>

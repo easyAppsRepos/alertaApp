@@ -1,0 +1,85 @@
+<ion-view view-title="Registro de Usuario">
+
+
+    <ion-nav-bar class="bar-darks">
+
+      <ion-nav-back-button>
+      </ion-nav-back-button>
+
+      <ion-nav-buttons side="right">
+
+
+         
+
+      </ion-nav-buttons>
+
+
+
+
+    </ion-nav-bar>
+
+
+
+
+
+  <ion-content style='background-color: #123661'>
+ 
+<div class="perfilC" style="margin-top:25px">
+
+<span> <img style="    vertical-align: middle;
+    height: 35px;" src="img/perfil.png"> Nombre
+<input ng-model='nu.Nombre' type="text" name="">
+
+
+            </span>
+
+
+
+
+
+
+
+
+<span><img style="    vertical-align: middle;
+    height: 35px;" src="img/dni.png"> DNI
+
+    <input ng-model='nu.dni' type="text" name="">
+
+    </span>
+<br> 
+
+<span>Empresa</span>
+<span><input ng-model='nu.empresa' type="text" name=""></span>
+
+<br> 
+
+<span>Centro de trabajo</span>
+<span><input ng-model='nu.centro' type="text" name=""></span>
+
+<br> 
+
+<span>Puesto de trabajo</span>
+<span><input ng-model='nu.puesto' type="text" name=""></span>
+
+<br> 
+
+<!-- <span>Contraseña</span>
+<span><input ng-model='nu.contra' type="text" name=""></span>
+
+<br> 
+ -->
+</div>
+<div style="    text-align: center;">
+<button style="margin-top:15px" class="button button-light" ng-click='registroUsuario(nu)'>
+  Registrar usuario
+</button>
+</div>
+
+
+  </ion-content>
+
+
+
+
+
+</ion-view>
