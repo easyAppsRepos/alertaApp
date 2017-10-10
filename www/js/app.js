@@ -377,6 +377,9 @@ app.factory('peligroFactory', function($rootScope, $localstorage, $ionicLoading,
 
 
 iniciarAlarma: function () {
+
+	cordova.plugins.backgroundMode.unlock();
+	
 	if(paraAlerta==true){
 		counter = $localstorage.get('tiempoAlerta',30);
 		paraAlerta=false;
