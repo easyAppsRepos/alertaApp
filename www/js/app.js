@@ -278,21 +278,21 @@ app.factory('peligroFactory', function($rootScope, $localstorage, $ionicLoading,
 
 
 			var montar = function(){
-
-
-
 				if( window.plugins && window.plugins.NativeAudio ) {
-
-	window.plugins.NativeAudio.preloadComplex( 'music', 'audio/alarma.mp3', 1, 1, 0, function(msg){
-				console.log('ok');
-				console.log(msg);
-			}, function(msg){
-			console.log( 'error: ' + msg );
-			});
-
-}
-
+					window.plugins.NativeAudio.unload('music');
+					window.plugins.NativeAudio.preloadComplex('music', 'audio/alarma.mp3', 1, 1, 0, function(msg){
+					console.log('ok');
+					console.log(msg);
+					}, function(msg){
+					console.log( 'error: ' + msg );
+					});
+				}
 			}
+
+
+
+
+
 		var reset= function(){
 
 			counter = $localstorage.get('tiempoConfirmacion','300');
@@ -303,7 +303,7 @@ app.factory('peligroFactory', function($rootScope, $localstorage, $ionicLoading,
 
 		paraAlerta = true;
 		window.plugins.NativeAudio.stop('music');
-		window.plugins.NativeAudio.unload( 'music' );
+		//window.plugins.NativeAudio.unload( 'music' );
 		console.log('parar alarma');
 		montar();
 		}
