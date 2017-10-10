@@ -273,9 +273,7 @@ app.factory('peligroFactory', function($rootScope, $localstorage, $ionicLoading,
     	var counter = $localstorage.get('tiempoAlerta',30);
     	var paraAlerta = false;
 
-    	if( window.plugins && window.plugins.NativeAudio ) {
-			window.plugins.NativeAudio.loop('music');
-			}
+    	
 
 
 
@@ -400,10 +398,20 @@ iniciarAlarma: function () {
 	if(paraAlerta==true){
 		counter = $localstorage.get('tiempoAlerta',30);
 		paraAlerta=false;
+		if( window.plugins && window.plugins.NativeAudio ) {
+			window.plugins.NativeAudio.loop('music');
+			}
+			
 		mytimeout = $timeout(onTimeout,1000);
 	}
 	else{
 		if(counter == $localstorage.get('tiempoAlerta',30)){
+
+			if( window.plugins && window.plugins.NativeAudio ) {
+			window.plugins.NativeAudio.loop('music');
+			}
+
+
 			mytimeout = $timeout(onTimeout,1000);
 		}
 	}
