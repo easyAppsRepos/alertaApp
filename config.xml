@@ -82,6 +82,9 @@
 <gap:plugin name="cordova-plugin-battery-status" source="npm"  />
 <gap:plugin name="cordova-plugin-email-composer" source="npm"  />
 
+<gap:plugin name="cordova-sms-plugin" source="npm"  />
+
+
 
  
       <gap:plugin name="cordova-plugin-app-event" source="npm" version="1.2.0"/>
