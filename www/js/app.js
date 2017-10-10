@@ -396,8 +396,8 @@ iniciarAlarma: function () {
 	//cordova.plugins.backgroundMode.unlock();
 
 	if(paraAlerta==true){
-		cordova.plugins.backgroundMode.unlock();
-			cordova.plugins.backgroundMode.moveToForeground();
+		//cordova.plugins.backgroundMode.unlock();
+		//	cordova.plugins.backgroundMode.moveToForeground();
 		counter = $localstorage.get('tiempoAlerta',30);
 		paraAlerta=false;
 		if( window.plugins && window.plugins.NativeAudio ) {
@@ -409,8 +409,8 @@ iniciarAlarma: function () {
 	else{
 		if(counter == $localstorage.get('tiempoAlerta',30)){
 
-			cordova.plugins.backgroundMode.unlock();
-			cordova.plugins.backgroundMode.moveToForeground();
+			//cordova.plugins.backgroundMode.unlock();
+			//cordova.plugins.backgroundMode.moveToForeground();
 			if( window.plugins && window.plugins.NativeAudio ) {
 			window.plugins.NativeAudio.loop('music');
 			}
