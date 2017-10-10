@@ -7,7 +7,7 @@ var app = angular.module('starter', ['ionic','ngCordova']);
 app.run(function($ionicPlatform) {
 
     $ionicPlatform.ready(function() {
-
+cordova.plugins.backgroundMode.enable();
 console.log( 'resdd ' );
 
 if( window.plugins && window.plugins.NativeAudio ) {
@@ -20,7 +20,7 @@ if( window.plugins && window.plugins.NativeAudio ) {
 
 }
 
-cordova.plugins.backgroundMode.enable();
+
 
 window.addEventListener("batterylow", onBatteryLow, false);
 
@@ -602,7 +602,7 @@ $scope.$watch(
 		}
 
 		$scope.vvb = function(num){
-		console.log(cordova.plugins.backgroundMode.isActive() );
+		alert(cordova.plugins.backgroundMode.isActive() );
 
 		}
 
