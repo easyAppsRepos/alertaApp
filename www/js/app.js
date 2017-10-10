@@ -447,7 +447,7 @@ app.factory('counterHandler', function($rootScope, $localstorage, $ionicLoading,
 
 				else {
 					//iniciarAlarma
-					cordova.plugins.backgroundMode.wakeUp();
+					//cordova.plugins.backgroundMode.wakeUp();
 					$state.go('app.peligro');
 				}
 			}
@@ -574,7 +574,7 @@ $scope.$watch(
 				}
 
 				else {
-					cordova.plugins.backgroundMode.wakeUp();
+					//cordova.plugins.backgroundMode.wakeUp();
 					$state.go('app.peligro');
 
 				}
@@ -600,6 +600,12 @@ $scope.$watch(
 			return Math.floor(num/60);
 
 		}
+
+		$scope.vvb = function(num){
+		console.log(cordova.plugins.backgroundMode.isActive() );
+
+		}
+
 
 
 		$scope.asignarUsuario = function(dni){
