@@ -396,17 +396,18 @@ iniciarAlarma: function () {
 	//cordova.plugins.backgroundMode.unlock();
 
 	if(paraAlerta==true){
+		cordova.plugins.backgroundMode.moveToForeground();
 		counter = $localstorage.get('tiempoAlerta',30);
 		paraAlerta=false;
 		if( window.plugins && window.plugins.NativeAudio ) {
 			window.plugins.NativeAudio.loop('music');
 			}
-			
+
 		mytimeout = $timeout(onTimeout,1000);
 	}
 	else{
 		if(counter == $localstorage.get('tiempoAlerta',30)){
-
+			cordova.plugins.backgroundMode.moveToForeground();
 			if( window.plugins && window.plugins.NativeAudio ) {
 			window.plugins.NativeAudio.loop('music');
 			}
