@@ -3,8 +3,8 @@
 
 .bar-darks{
 
-	background-color: #1b5292;
-	height: 70px;
+	background-color: #1b5292 !important;
+	height: 70px !important;
 	    color: white !important;
 }
 
@@ -20,14 +20,14 @@
 }
 
 .bar.bar-balanced {
-    border-color: #28a54c;
-    background-color: #f08121;
+    border-color: #28a54c !important;
+    background-color: #f08121 !important;
 
 }
 
 .iconDelete{
-	    margin-left: 8PX;
-    font-size: 23px;
+	    margin-left: 8PX !important;
+    font-size: 23px !important;
     color: #ed5564;
     vertical-align: middle;
 }
@@ -52,14 +52,14 @@ width: 90%;
 
 .bar .title {
 
-    padding-top: 10px;
+    padding-top: 10px !important;
 }
 
 
 .bar .button.button-clear {
 
-    padding-top: 10px;
-    color: white !important;
+    padding-top: 10px !important;
+    color: white  !important;
 }
 
 
