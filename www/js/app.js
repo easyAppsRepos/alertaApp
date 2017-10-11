@@ -199,13 +199,13 @@ app.factory('$localstorage', ['$window', function ($window) {
     setSMS: function (key,dni,sms) {
 
 		//var dds=$localstorage.getObject('xdALPusarr');
-		var usuariosT= JSON.parse($window.localStorage[key] || '{}');
+		var usuariosT= JSON.parse($window.localStorage[key] || '[]');
 
 		var indexOfStevie = usuariosT.findIndex(i => i.dni == dni);
 
 		usuariosT[indexOfStevie].sms.push(sms);
 
-		//console.log(indexOfStevie);
+		console.log(indexOfStevie);
 		$window.localStorage[key] = JSON.stringify(usuariosT);
 
       return usuariosT[indexOfStevie] || -1;
