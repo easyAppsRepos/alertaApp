@@ -268,7 +268,7 @@ deleteSMS: function (key,dni,indexSMS) {
 
 
 
-app.factory('peligroFactory', function($rootScope, $localstorage, $ionicLoading, $timeout, $window, $state){
+app.factory('peligroFactory', function($rootScope, $localstorage, $cordovaSms, $ionicLoading, $timeout, $window, $state){
     
     	var counter = $localstorage.get('tiempoAlerta',30);
     	var paraAlerta = false;
@@ -374,6 +374,8 @@ app.factory('peligroFactory', function($rootScope, $localstorage, $ionicLoading,
 			console.log("Response -> " + userActivo.Nombre);
 			console.log("Response -> " + userActivo.email);
 /*
+
+sendSMS = function(usuario,numero) {
 				if(window.plugins && window.plugins.emailComposer) {
 				window.plugins.emailComposer.showEmailComposerWithCallback(function(result) {
 				console.log("Response -> " + result);
@@ -394,7 +396,9 @@ app.factory('peligroFactory', function($rootScope, $localstorage, $ionicLoading,
 				//text += cars[i] + "<br>";
 				//console.log()[]
 				var texto='Alarma activada por el usuario '+userActivo.Nombre;
-				sendMensaje(userActivo.sms[i],texto);
+				//sendMensaje(userActivo.sms[i],texto);
+				sendSMS(userActivo.Nombre, userActivo.sms[i]);
+				
 				}
 
 
