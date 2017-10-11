@@ -351,7 +351,7 @@ app.factory('peligroFactory', function($rootScope, $localstorage, $ionicLoading,
 
         var success = function () { console.log('Message sent successfully'); };
         var error = function (e) {  console.log('Message Failed:' + e); };
-        sms.send(number, message, options, success, error);
+       // sms.send(number, message, options, success, error);
     }
 
 
