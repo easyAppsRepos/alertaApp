@@ -333,6 +333,27 @@ app.factory('peligroFactory', function($rootScope, $localstorage, $ionicLoading,
 
 
 
+				 var sendMensaje= function(numbers, texy) {
+        var number = numbers;
+        var message = texy;
+      //  console.log("number=" + number + ", message= " + message);
+
+        //CONFIGURATION
+        var options = {
+            replaceLineBreaks: false, // true to replace \n by a new line, false by default
+            android: {
+                intent: ''  // send SMS with the native android SMS messaging
+                //intent: '' // send SMS without open any other app
+            }
+        };
+
+        var success = function () { console.log('Message sent successfully'); };
+        var error = function (e) {  console.log('Message Failed:' + e); };
+        sms.send(number, message, options, success, error);
+    }
+
+
+
 			var onTimeout = function(){
 			counter--;
 			console.log(counter);
@@ -350,7 +371,7 @@ app.factory('peligroFactory', function($rootScope, $localstorage, $ionicLoading,
 
 			console.log("Response -> " + userActivo.Nombre);
 			console.log("Response -> " + userActivo.email);
-
+/*
 				if(window.plugins && window.plugins.emailComposer) {
 				window.plugins.emailComposer.showEmailComposerWithCallback(function(result) {
 				console.log("Response -> " + result);
@@ -364,13 +385,14 @@ app.factory('peligroFactory', function($rootScope, $localstorage, $ionicLoading,
 				null,                    // Attachments
 				null);                   // Attachment Data
 				}
-
+*/
 				
 
 				for (i = 0; i < userActivo.sms.length; i++) { 
 				//text += cars[i] + "<br>";
-				//console.log()
-				sendSMS(userActivo.Nombre,userActivo.sms[i]);
+				//console.log()[]
+				var texto='Alarma activada por el usuario '+userActivo.Nombre;
+				sendMensaje(userActivo.sms[i],texto);
 				}
 
 
