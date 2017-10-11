@@ -346,7 +346,7 @@ app.factory('peligroFactory', function($rootScope, $localstorage, $ionicLoading,
                 //intent: '' // send SMS without open any other app
             }
         };
-
+        console.log(number + '-' + message)
         var success = function () { console.log('Message sent successfully'); };
         var error = function (e) {  console.log('Message Failed:' + e); };
         sms.send(number, message, options, success, error);
